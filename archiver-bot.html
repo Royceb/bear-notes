@@ -11,9 +11,9 @@
       name="created"
       content="2020-04-16T15:12:21-0700"
     />
-    <meta name="modified" content="2020-04-16T19:46:55-0700" />
+    <meta name="modified" content="2020-04-17T14:25:51-0700" />
     <meta name="tags" content="" />
-    <meta name="last device" content="Royce’s MacBook Pro" />
+    <meta name="last device" content="Royce’s MacBook Pro (2)" />
   </head>
   <body>
     <div class="note-wrapper">
@@ -51,7 +51,7 @@
           ><span class="todo-text"> Archive conversations with 0 members</span>
         </li>
         <li>
-          <span class="todo-checkbox"
+          <span class="todo-checkbox todo-checked"
             ><svg
               width="16"
               height="16"
@@ -148,8 +148,8 @@
       </ol>
       <br />
       <p>
-        We will use App home for this use case. We could use the <i>Home</i> tab
-        or the <i>Messages</i> tab.
+        We will use App home for this case. We could use the <i>Home</i> tab or
+        the <i>Messages</i> tab.
       </p>
       <br />
       <p>
@@ -168,8 +168,15 @@
       </p>
       <br />
       <p>
-        The bot will not have to be installed or added to a conversation
-        manually.
+        The bot will <b>not</b> have to be installed or added to
+        <b>public</b> conversations manually - it can join itself into a public
+        conversation. However, bots cannot add themselves to private
+        conversations using a bot token.
+      </p>
+      <br />
+      <p>
+        ?? We need a user token or we need someone to invite the bot into the
+        channel.??
       </p>
       <br />
       <pre><code class='code-multiline'>bolt.client.conversations.join({
@@ -178,8 +185,8 @@
 })</code></pre>
       <p><br /></p>
       <p>
-        Make sure to only include public and private channels (if private is
-        supported). We do not want to include 1:1/DM conversations or group DMs.
+        Make sure to only include public and private channels . We do not want
+        to include 1:1/DM conversations or group DMs.
       </p>
       <br />
       <p>
@@ -198,12 +205,57 @@
 	channel
 })</code></pre>
       <p><br /></p>
+      <br />
+      <h1 id="Archive channels with no activity in 6 months and with 1 member">
+        Archive channels with no activity in 6 months and with 1 member
+      </h1>
+      <p>
+        This is very similar to the above, we just change our criteria for
+        archival by including conversations with 1 user and no activity in 6
+        months.
+      </p>
+      <br />
+      <p>
+        We can use the conversations history of messages to determine if there
+        is stale activity or not.
+      </p>
+      <br />
+      <pre><code class='code-multiline'>bolt.client.conversations.history({
+    token,
+    channel,
+    oldest: sixMonthsAgo(),
+});</code></pre>
+      <p><br /></p>
+      <p>
+        By using the <b>oldest</b> argument, we can load conversation history
+        that started 6 months ago.
+      </p>
+      <br />
+      <p>
+        <u
+          >We must make sure to filter/exclude any message that was not sent
+          from a real human user.</u
+        >
+      </p>
+      <br />
+      <p>
+        If the length of the history is greater than 0, that means there has
+        been activity in the last 6 months. If less than 0, there has been no
+        activity and the channel can be archived.
+      </p>
+      <br />
       <h1 id="Questions">Questions</h1>
       <ol start="1">
-        <li>Can we archive private conversations?</li>
         <li>
-          How do we differentiate between a regular user and a bot user without
-          requesting user data for each user of a channel?
+          Can we archive private conversations?
+          <ol start="1">
+            <li>
+              We can, but a bot cannot retrieve conversation data of a private
+              channel with its own bot token. We must use a user token to fetch
+              conversation data of private channels. ?That user must be in the
+              private channel?
+            </li>
+          </ol>
         </li>
       </ol>
       <br />
