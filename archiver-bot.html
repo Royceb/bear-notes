@@ -11,7 +11,7 @@
       name="created"
       content="2020-04-16T15:12:21-0700"
     />
-    <meta name="modified" content="2020-04-16T19:26:40-0700" />
+    <meta name="modified" content="2020-04-16T19:42:21-0700" />
     <meta name="tags" content="" />
     <meta name="last device" content="Royce’s MacBook Pro" />
   </head>
@@ -25,7 +25,7 @@
       <br />
       <ul class="todo-list">
         <li>
-          <span class="todo-checkbox"
+          <span class="todo-checkbox todo-checked"
             ><svg
               width="16"
               height="16"
@@ -114,10 +114,13 @@
         </li>
       </ul>
       <br />
+      <h2 id="Bolt">Bolt</h2>
+      <p>
+        Bolt is a Javascript library that implements and provides easy to use
+        interfaces to most of Slack API’s.
+      </p>
       <br />
-      <h2 id="Phase 1">Phase 1</h2>
-      <p><i>Archive channels with 0 members</i></p>
-      <br />
+      <h2 id="Slack App Setup">Slack App Setup</h2>
       <p>
         Clone
         <a href="https://github.com/RobotsAndPencils/sample-slack"
@@ -126,31 +129,54 @@
         and follow the instructions in the README.md.
       </p>
       <br />
-      <p>Make sure to include a bot with this app.</p>
-      <br />
       <p>
-        This app will be installable into Slack workspaces. Once installed,
-        there multiple options to initiate the archival process.
+        You should have a Slack app created at
+        <a href="https://api.slack.com/apps">Slack API: Applications | Slack</a
+        >. Make sure to include a bot with this app. The bot will be used to
+        find channels to archive and archive them.
       </p>
       <br />
+      <p>Install the app into a workspace.</p>
+      <br />
+      <h2 id="Archive conversations with 0 members">
+        Archive conversations with 0 members
+      </h2>
+      <p>There are multiple ways to start the archival process:</p>
       <ol start="1">
-        <li>Via app_home_opened</li>
-        <li>Via app_home_opened page</li>
-        <li>Via a slash command</li>
+        <li>Via App Home</li>
+        <li>Via a Slash Command</li>
       </ol>
       <br />
-      <p>We will cover the first 2 for now.</p>
+      <p>
+        We will use App home for this use case. We could use the <i>Home</i> tab
+        or the <i>Messages</i> tab.
+      </p>
       <br />
-      <p>TALK ABOUT APP HOME OPENED EVENT</p>
+      <p>
+        Using the <i>Home</i> tab, we can display buttons to start the archival
+        process.
+      </p>
+      <p>
+        Using the <i>Messages</i> tab, we can display buttons/blocks directly in
+        the chat.
+      </p>
+      <br />
+      <p>
+        Slack triggers an event, <i>app_home_opened</i> when the App Home is
+        opened. We could use this event to send a message as well, like
+        described directly above.
+      </p>
       <br />
       <p>
         The bot will not have to be installed or added to a conversation
-        manually. We can use the app_home_opened event or the app home page to
-        show options to start the archival process.
+        manually.
       </p>
       <br />
-      <p><u>CHECK ARCHIVAL OF PRIVATE CONVERSATION</u></p>
-      <br />
+      <pre><code class='code-multiline'>bolt.client.conversations.join({
+	token,
+	channel
+})</code></pre>
+      <p><br /></p>
       <p>
         Make sure to only include public and private channels (if private is
         supported). We do not want to include 1:1/DM conversations or group DMs.
