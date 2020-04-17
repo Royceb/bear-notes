@@ -11,7 +11,7 @@
       name="created"
       content="2020-04-16T15:12:21-0700"
     />
-    <meta name="modified" content="2020-04-16T18:07:10-0700" />
+    <meta name="modified" content="2020-04-16T19:23:41-0700" />
     <meta name="tags" content="" />
     <meta name="last device" content="Royce’s MacBook Pro" />
   </head>
@@ -23,6 +23,98 @@
         that meet a certain criteria.
       </p>
       <br />
+      <ul class="todo-list">
+        <li>
+          <span class="todo-checkbox"
+            ><svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <path
+                  d="M.5 12.853c0 1.462 1.185 2.647 2.647 2.647h9.706c1.462 0 2.647-1.185 2.647-2.647V3.147C15.5 1.685 14.315.5 12.853.5H3.147C1.685.5.5 1.685.5 3.147v9.706z"
+                  fill="#FFF"
+                />
+                <path
+                  d="M.5 12.853c0 1.462 1.185 2.647 2.647 2.647h9.706c1.462 0 2.647-1.185 2.647-2.647V3.147C15.5 1.685 14.315.5 12.853.5H3.147C1.685.5.5 1.685.5 3.147v9.706z"
+                  stroke="#B4B4B4"
+                />
+                <path
+                  d="M12.526 4.615L6.636 9.58l-2.482-.836c-.19-.06-.408.003-.518.15-.116.15-.106.352.026.495l2.722 2.91c.086.09.21.144.34.144h.046c.12-.013.234-.07.307-.156l6.1-7.125c.143-.166.123-.407-.046-.548-.164-.138-.435-.14-.604 0z"
+                  id="check"
+                  fill="#555"
+                />
+              </g>
+            </svg> </span
+          ><span class="todo-text"> Archive conversations with 0 members</span>
+        </li>
+        <li>
+          <span class="todo-checkbox"
+            ><svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <path
+                  d="M.5 12.853c0 1.462 1.185 2.647 2.647 2.647h9.706c1.462 0 2.647-1.185 2.647-2.647V3.147C15.5 1.685 14.315.5 12.853.5H3.147C1.685.5.5 1.685.5 3.147v9.706z"
+                  fill="#FFF"
+                />
+                <path
+                  d="M.5 12.853c0 1.462 1.185 2.647 2.647 2.647h9.706c1.462 0 2.647-1.185 2.647-2.647V3.147C15.5 1.685 14.315.5 12.853.5H3.147C1.685.5.5 1.685.5 3.147v9.706z"
+                  stroke="#B4B4B4"
+                />
+                <path
+                  d="M12.526 4.615L6.636 9.58l-2.482-.836c-.19-.06-.408.003-.518.15-.116.15-.106.352.026.495l2.722 2.91c.086.09.21.144.34.144h.046c.12-.013.234-.07.307-.156l6.1-7.125c.143-.166.123-.407-.046-.548-.164-.138-.435-.14-.604 0z"
+                  id="check"
+                  fill="#555"
+                />
+              </g>
+            </svg> </span
+          ><span class="todo-text">
+            Archive channels with no activity in 6 months and with 1
+            member</span
+          >
+        </li>
+        <li>
+          <span class="todo-checkbox"
+            ><svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <path
+                  d="M.5 12.853c0 1.462 1.185 2.647 2.647 2.647h9.706c1.462 0 2.647-1.185 2.647-2.647V3.147C15.5 1.685 14.315.5 12.853.5H3.147C1.685.5.5 1.685.5 3.147v9.706z"
+                  fill="#FFF"
+                />
+                <path
+                  d="M.5 12.853c0 1.462 1.185 2.647 2.647 2.647h9.706c1.462 0 2.647-1.185 2.647-2.647V3.147C15.5 1.685 14.315.5 12.853.5H3.147C1.685.5.5 1.685.5 3.147v9.706z"
+                  stroke="#B4B4B4"
+                />
+                <path
+                  d="M12.526 4.615L6.636 9.58l-2.482-.836c-.19-.06-.408.003-.518.15-.116.15-.106.352.026.495l2.722 2.91c.086.09.21.144.34.144h.046c.12-.013.234-.07.307-.156l6.1-7.125c.143-.166.123-.407-.046-.548-.164-.138-.435-.14-.604 0z"
+                  id="check"
+                  fill="#555"
+                />
+              </g>
+            </svg> </span
+          ><span class="todo-text">
+            For channels with more than 1 member and no activity in 6 months -
+            send message to conversation that it will be archived. If someone
+            doesn’t object within X amount of time or if there is no objection,
+            bot will remove all members then archive channel (by removing all
+            members people will not be aggressively notified about the channels
+            being archived)</span
+          >
+        </li>
+      </ul>
+      <br />
+      <br />
       <h2 id="Phase 1">Phase 1</h2>
       <p><i>Archive channels with 0 members</i></p>
       <br />
@@ -31,25 +123,33 @@
         <a href="https://github.com/RobotsAndPencils/sample-slack"
           >https://github.com/RobotsAndPencils/sample-slack</a
         >
-        and follow the instructions in the README.md
+        and follow the instructions in the README.md.
       </p>
       <br />
       <p>Make sure to include a bot with this app.</p>
       <br />
       <p>
-        This app will be installable into Slack workspaces. Once installed, the
-        bot must be added to conversations individually. This is because the bot
-        needs access to the conversation messages/history and cannot access
-        those without being in the channel.
+        This app will be installable into Slack workspaces. Once installed,
+        there multiple options to initiate the archival process.
       </p>
       <br />
+      <ol start="1">
+        <li>Via app_home_opened</li>
+        <li>Via app_home_opened page</li>
+        <li>Via a slash command</li>
+      </ol>
+      <br />
+      <p>We will cover the first 2 for now.</p>
+      <br />
+      <p>TALK ABOUT APP HOME OPENED EVENT</p>
+      <br />
       <p>
-        The bot <i>does</i> have the ability to view the list of conversations
-        in a workspace without being in any conversation. An opportunity for
-        improvement would be to skip the step where the bot needs to be added
-        into the channel, or find a way to automate this so a human does not
-        have to do it.
+        The bot will not have to be installed or added to a conversation
+        manually. We can use the app_home_opened event or the app home page to
+        show options to start the archival process.
       </p>
+      <br />
+      <p><u>CHECK ARCHIVAL OF PRIVATE CONVERSATION</u></p>
       <br />
       <p>
         Make sure to only include public and private channels (if private is
@@ -70,8 +170,6 @@
         The bot will aggregate the conversations that match this criteria, and
         then archive the channel.
       </p>
-      <br />
-      <p>In order for the bot to archive the channel…</p>
       <br />
     </div>
     <script type="text/javascript">
