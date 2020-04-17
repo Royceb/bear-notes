@@ -11,7 +11,7 @@
       name="created"
       content="2020-04-16T15:12:21-0700"
     />
-    <meta name="modified" content="2020-04-16T19:42:21-0700" />
+    <meta name="modified" content="2020-04-16T19:46:55-0700" />
     <meta name="tags" content="" />
     <meta name="last device" content="Royce’s MacBook Pro" />
   </head>
@@ -183,21 +183,21 @@
       </p>
       <br />
       <p>
-        Once the bot gets a list of conversations in a workspace that, it can
-        figure out which ones are archivable.
-      </p>
-      <br />
-      <p>
-        For now, conversations are archivable only if they do not have any
-        members.
+        Once the bot gets a list of conversations in a workspace, it can figure
+        out which ones are archivable. For now, conversations are archivable
+        only if they do not have any members.
       </p>
       <br />
       <p>
         The bot will aggregate the conversations that match this criteria, and
-        then archive the channel.
+        then archive the channel using:
       </p>
       <br />
-      <br />
+      <pre><code class='code-multiline'>bolt.client.conversations.archive({
+	token,
+	channel
+})</code></pre>
+      <p><br /></p>
       <h1 id="Questions">Questions</h1>
       <ol start="1">
         <li>Can we archive private conversations?</li>
